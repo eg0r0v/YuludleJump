@@ -61,7 +61,7 @@ final class GameScene: SKScene {
         gameDelegate?.showScoreboard()
         addBackground()
         
-        spawnOctopus()
+        respawnOctopus()
         spawnFish()
         spawnBubbles()
         addBottomNode()
@@ -86,9 +86,11 @@ final class GameScene: SKScene {
         totalBackgroundHeight = offset
     }
     
-    private func spawnOctopus() {
+    private func respawnOctopus() {
         octopus.position = .init(x: gameFrame.midX, y: 50 + octopus.size.height)
-        addChild(octopus)
+        if octopus.parent == nil {
+            addChild(octopus)
+        }
     }
     
     private func spawnBubbles() {
@@ -160,7 +162,8 @@ final class GameScene: SKScene {
     
     private func checkJumperPosition() {
         if octopus.position.y + octopus.size.height < 0 {
-            endGame()
+            takeHit()
+            restartGameOnBottomHit()
             return
         }
         
@@ -177,6 +180,13 @@ final class GameScene: SKScene {
         if let octopusVelocity = octopus.physicsBody?.velocity.dx {
             octopus.physicsBody?.velocity.dx = min(max(octopusVelocity , -1000), 1000)
         }
+    }
+    
+    private func restartGameOnBottomHit() {
+        gameStarted = false
+        physicsWorld.gravity = .zero
+        octopus.physicsBody?.velocity = .zero
+        respawnOctopus()
     }
     
     private func updatePositions() {
@@ -291,6 +301,13 @@ final class GameScene: SKScene {
         }
     }
     
+    private func takeHit() {
+        gameDelegate?.livesLeft -= 1
+        if gameDelegate?.livesLeft == 0 {
+            endGame()
+        }
+    }
+    
     private func endGame() {
         let menuScene = MenuScene(size: view!.bounds.size, gameDelegate: gameDelegate)
         view?.presentScene(menuScene)
@@ -302,6 +319,7 @@ final class GameScene: SKScene {
         
         if !gameStarted {
             physicsWorld.gravity = .init(dx: 0, dy: -5)
+            octopus.physicsBody?.velocity.dy = gameFrame.height * normalJumpSpeed - octopus.position.y
             gameStarted.toggle()
             return
         }
@@ -346,10 +364,7 @@ extension GameScene: SKPhysicsContactDelegate {
             }
         case Physics.octopus | Physics.fishEnemy:
             if let fish = [contact.bodyA.node, contact.bodyB.node].compactMap({ $0 as? FishNode }).first {
-                gameDelegate?.livesLeft -= 1
-                if gameDelegate?.livesLeft == 0 {
-                    endGame()
-                }
+                takeHit()
                 fish.takeRest()
             }
         case Physics.octopus | Physics.heart:
