@@ -14,6 +14,18 @@ enum PlatformState: Int, CaseIterable {
     case hasGrass = 2
     case hasShell = 3
     
+    private static let stateArray: [PlatformState] = {
+        var array = [PlatformState]()
+        for state in allCases {
+            array.append(contentsOf: Array(repeating: state, count: state.rawValue))
+        }
+        return array
+    }()
+    
+    static var randomElement: PlatformState {
+        stateArray.randomElement() ?? .empty
+    }
+    
     var platformOffset: CGFloat {
         switch self {
         case .hasGrass, .hasShell:
@@ -68,7 +80,7 @@ final class PlatformNode: SKSpriteNode {
         isOneTimePlatform = (0..<10).randomElement() == 0
         alpha = isOneTimePlatform ? 0.4 : 1.0
         
-        platformState = PlatformState.allCases.randomElement() ?? .empty
+        platformState = PlatformState.randomElement
         
         platformItem?.removeFromParent()
         platformItem = nil
