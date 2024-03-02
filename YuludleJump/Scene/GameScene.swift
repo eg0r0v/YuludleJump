@@ -220,6 +220,7 @@ final class GameScene: SKScene {
         }
         
         if bottomNode.frame.maxY < .zero {
+            bottomNode.isHidden = true
             bottomNode.removeFromParent()
         }
     }
@@ -319,7 +320,9 @@ final class GameScene: SKScene {
         
         if !gameStarted {
             physicsWorld.gravity = .init(dx: 0, dy: -5)
-            octopus.physicsBody?.velocity.dy = gameFrame.height * normalJumpSpeed - octopus.position.y
+            if bottomNode.isHidden {
+                octopus.physicsBody?.velocity.dy = gameFrame.height * normalJumpSpeed - octopus.position.y
+            }
             gameStarted.toggle()
             return
         }
