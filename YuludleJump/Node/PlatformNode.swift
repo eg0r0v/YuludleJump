@@ -7,17 +7,32 @@
 
 import SpriteKit
 
-enum PlatformState: Int, CaseIterable {
-    case empty = 14 // 50%
-    case hasCoin = 8 // 5/28
-    case hasHeart = 1 // 1
-    case hasGrass = 2
-    case hasShell = 3
+enum PlatformState: CaseIterable { // out of 100
+    case empty
+    case hasCoin
+    case hasHeart
+    case hasGrass
+    case hasShell
+    
+    private var balanceValue: Int {
+        switch self {
+        case .empty:
+            return 16
+        case .hasCoin:
+            return 48
+        case .hasHeart:
+            return 6
+        case .hasGrass:
+            return 16
+        case .hasShell:
+            return 14
+        }
+    }
     
     private static let stateArray: [PlatformState] = {
         var array = [PlatformState]()
         for state in allCases {
-            array.append(contentsOf: Array(repeating: state, count: state.rawValue))
+            array.append(contentsOf: Array(repeating: state, count: state.balanceValue))
         }
         return array
     }()
