@@ -26,7 +26,9 @@ final class GameViewController: UIViewController {
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var livesLabel: UILabel!
     
-    var livesLeft = 3 {
+    private let initialLivesLeftValue = 3
+    
+    lazy var livesLeft = initialLivesLeftValue {
         didSet {
             livesLabel.text = String(format: "%03d", livesLeft)
         }
@@ -124,7 +126,7 @@ extension GameViewController: GameDelegate {
     func showScoreboard() {
         scoreboardView.isHidden = false
         score = 0
-        livesLeft = 3
+        livesLeft = initialLivesLeftValue
     }
     
     func hideScoreboard() {
