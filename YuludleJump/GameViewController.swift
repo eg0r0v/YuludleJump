@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SpriteKit
 import GameplayKit
 
 protocol GameDelegate: AnyObject {
@@ -53,10 +52,14 @@ final class GameViewController: UIViewController {
         pauseLabel.isHidden = true
      
         setupPauseLabel()
-        ResizedImages.configure(width: view.frame.width) { [weak self] in
-            let menuScene = (self?.view as? SKView)?.scene as? MenuScene
-            menuScene?.setIsReady()
-        }
+        redrawScene()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(redrawScene),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil
+        )
     }
     
     private func setupPauseLabel() {
@@ -74,18 +77,27 @@ final class GameViewController: UIViewController {
     
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
-        
-        if let view = self.view as? SKView {
-            
-            let menuScene = MenuScene(size: view.bounds.size, gameDelegate: self)
-            menuScene.scaleMode = .aspectFill
-            view.presentScene(menuScene)
-            view.ignoresSiblingOrder = true
+        redrawScene()
+    }
+    
+    @objc private func redrawScene() {
+        ResizedImages.configure(width: view.frame.width) { [weak self] in
+            if let view = self?.view as? SKView, view.scene == nil {
+                let menuScene = MenuScene(size: view.bounds.size, gameDelegate: self)
+                menuScene.scaleMode = .aspectFill
+                view.presentScene(menuScene)
+                view.ignoresSiblingOrder = true
+            }
+            let currentScene = (self?.view as? SKView)?.scene
+            (currentScene as? MenuScene)?.setIsReady()
         }
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        .portrait
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return [.landscape]
+        }
+        return .portrait
     }
 
     override var prefersStatusBarHidden: Bool {

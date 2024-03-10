@@ -6,7 +6,6 @@
 //
 
 import SpriteKit
-//import CoreMotion
 
 final class GameScene: SKScene {
     
@@ -87,7 +86,7 @@ final class GameScene: SKScene {
     }
     
     private func respawnOctopus() {
-        octopus.position = .init(x: gameFrame.midX, y: 50 + octopus.size.height)
+        octopus.position = .init(x: gameFrame.midX, y: bottomNode.size.height + 50 + octopus.size.height)
         if octopus.parent == nil {
             addChild(octopus)
         }
@@ -311,6 +310,7 @@ final class GameScene: SKScene {
     
     private func endGame() {
         let menuScene = MenuScene(size: view!.bounds.size, gameDelegate: gameDelegate)
+        menuScene.scaleMode = .aspectFill
         view?.presentScene(menuScene)
         menuScene.setIsReady()
     }
