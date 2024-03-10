@@ -94,10 +94,7 @@ final class GameViewController: UIViewController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return [.landscape]
-        }
-        return .portrait
+        return [.portrait, .portraitUpsideDown]
     }
 
     override var prefersStatusBarHidden: Bool {

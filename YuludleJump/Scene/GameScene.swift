@@ -102,6 +102,7 @@ final class GameScene: SKScene {
     
     private func addBottomNode() {
         bottomNode.position = .init(x: bottomNode.size.width / 2, y: bottomNode.size.height / 2)
+        bottomNode.isHidden = false
         addChild(bottomNode)
     }
     
