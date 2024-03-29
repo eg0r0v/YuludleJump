@@ -111,6 +111,7 @@ final class GameViewController: UIViewController {
         pauseButton.setImage(pauseImage, for: .normal)
         
         if isPaused {
+			Music.stopBackgroundMusic()
             blurView.isHidden = false
             pauseLabel.isHidden = false
             (view as? SKView)?.isPaused = isPaused
@@ -122,6 +123,7 @@ final class GameViewController: UIViewController {
                 self.pauseLabel.alpha = isPaused ? 1.0 : 0.0
             }, completion: { [weak self] _ in
                 if !isPaused {
+					Music.playBackgroundMusic()
                     self?.blurView.isHidden = true
                     self?.pauseLabel.isHidden = true
                     (self?.view as? SKView)?.isPaused = isPaused

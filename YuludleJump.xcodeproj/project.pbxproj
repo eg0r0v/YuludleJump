@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		014FCBC527D408960067B4F3 /* BottomNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014FCBC427D408950067B4F3 /* BottomNode.swift */; };
 		014FCBC827D431B40067B4F3 /* BubbleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014FCBC727D431B40067B4F3 /* BubbleNode.swift */; };
+		01629F662BB6610500CE570F /* newLife.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01629F5F2BB6610500CE570F /* newLife.mp3 */; };
+		01629F672BB6610500CE570F /* grassHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01629F602BB6610500CE570F /* grassHit.mp3 */; };
+		01629F682BB6610500CE570F /* jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01629F612BB6610500CE570F /* jump.mp3 */; };
+		01629F692BB6610500CE570F /* mainTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01629F622BB6610500CE570F /* mainTheme.mp3 */; };
+		01629F6A2BB6610500CE570F /* coinCollect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01629F632BB6610500CE570F /* coinCollect.mp3 */; };
+		01629F6B2BB6610500CE570F /* shellBubbles.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01629F642BB6610500CE570F /* shellBubbles.mp3 */; };
+		01629F6C2BB6610500CE570F /* fishHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01629F652BB6610500CE570F /* fishHit.mp3 */; };
+		01629F6E2BB661CF00CE570F /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01629F6D2BB661CF00CE570F /* Music.swift */; };
 		0198661627D7BB1900D69861 /* ResizedImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198661527D7BB1900D69861 /* ResizedImages.swift */; };
 		019CDB4F27B1DD8F00A018E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CDB4E27B1DD8F00A018E0 /* AppDelegate.swift */; };
 		019CDB5527B1DD8F00A018E0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CDB5427B1DD8F00A018E0 /* GameScene.swift */; };
@@ -31,6 +39,14 @@
 /* Begin PBXFileReference section */
 		014FCBC427D408950067B4F3 /* BottomNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNode.swift; sourceTree = "<group>"; };
 		014FCBC727D431B40067B4F3 /* BubbleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleNode.swift; sourceTree = "<group>"; };
+		01629F5F2BB6610500CE570F /* newLife.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = newLife.mp3; sourceTree = "<group>"; };
+		01629F602BB6610500CE570F /* grassHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = grassHit.mp3; sourceTree = "<group>"; };
+		01629F612BB6610500CE570F /* jump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jump.mp3; sourceTree = "<group>"; };
+		01629F622BB6610500CE570F /* mainTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainTheme.mp3; sourceTree = "<group>"; };
+		01629F632BB6610500CE570F /* coinCollect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coinCollect.mp3; sourceTree = "<group>"; };
+		01629F642BB6610500CE570F /* shellBubbles.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shellBubbles.mp3; sourceTree = "<group>"; };
+		01629F652BB6610500CE570F /* fishHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fishHit.mp3; sourceTree = "<group>"; };
+		01629F6D2BB661CF00CE570F /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		0198661527D7BB1900D69861 /* ResizedImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImages.swift; sourceTree = "<group>"; };
 		019CDB4B27B1DD8F00A018E0 /* YuludleJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YuludleJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		019CDB4E27B1DD8F00A018E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +104,15 @@
 				01AE211E27C1656B00AA1779 /* Node */,
 				0198661527D7BB1900D69861 /* ResizedImages.swift */,
 				019CDB6B27B1E50700A018E0 /* Constants.swift */,
+				01629F6D2BB661CF00CE570F /* Music.swift */,
 				01F87C1627C178A600B6ADCB /* Extensions.swift */,
+				01629F632BB6610500CE570F /* coinCollect.mp3 */,
+				01629F612BB6610500CE570F /* jump.mp3 */,
+				01629F5F2BB6610500CE570F /* newLife.mp3 */,
+				01629F642BB6610500CE570F /* shellBubbles.mp3 */,
+				01629F652BB6610500CE570F /* fishHit.mp3 */,
+				01629F622BB6610500CE570F /* mainTheme.mp3 */,
+				01629F602BB6610500CE570F /* grassHit.mp3 */,
 				01AD3EB827C2B14D000B0F79 /* LaunchScreen.storyboard */,
 				019CDB5827B1DD8F00A018E0 /* Main.storyboard */,
 				019CDB5B27B1DD9400A018E0 /* Assets.xcassets */,
@@ -196,9 +220,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01629F6C2BB6610500CE570F /* fishHit.mp3 in Resources */,
+				01629F682BB6610500CE570F /* jump.mp3 in Resources */,
+				01629F6B2BB6610500CE570F /* shellBubbles.mp3 in Resources */,
+				01629F662BB6610500CE570F /* newLife.mp3 in Resources */,
 				01AD3EB927C2B14E000B0F79 /* LaunchScreen.storyboard in Resources */,
 				019CDB5A27B1DD8F00A018E0 /* Main.storyboard in Resources */,
+				01629F672BB6610500CE570F /* grassHit.mp3 in Resources */,
+				01629F6A2BB6610500CE570F /* coinCollect.mp3 in Resources */,
 				019CDB5C27B1DD9400A018E0 /* Assets.xcassets in Resources */,
+				01629F692BB6610500CE570F /* mainTheme.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +249,7 @@
 				01AE211C27C14D8D00AA1779 /* PlatformNode.swift in Sources */,
 				019CDB6627B1DDD700A018E0 /* MenuScene.swift in Sources */,
 				01AE212627C16BC300AA1779 /* HeartNode.swift in Sources */,
+				01629F6E2BB661CF00CE570F /* Music.swift in Sources */,
 				019CDB5727B1DD8F00A018E0 /* GameViewController.swift in Sources */,
 				0198661627D7BB1900D69861 /* ResizedImages.swift in Sources */,
 				019CDB4F27B1DD8F00A018E0 /* AppDelegate.swift in Sources */,
@@ -364,7 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = HS9D68HM23;
 				INFOPLIST_FILE = YuludleJump/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -387,7 +419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = HS9D68HM23;
 				INFOPLIST_FILE = YuludleJump/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

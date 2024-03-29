@@ -65,6 +65,7 @@ final class GameScene: SKScene {
         spawnBubbles()
         addBottomNode()
         addPlatforms()
+		Music.playBackgroundMusic()
     }
     
     private func addBackground() {
@@ -353,6 +354,7 @@ extension GameScene: SKPhysicsContactDelegate {
         
         switch contactMask {
         case Physics.octopus | Physics.platform:
+			run(Music.jumpSound)
             octopus.physicsBody?.velocity.dy = gameFrame.height * normalJumpSpeed - octopus.position.y
             if let platform = [contact.bodyA.node, contact.bodyB.node].compactMap({ $0 as? PlatformNode }).first {
                 if platform.isOneTimePlatform {
@@ -364,14 +366,18 @@ extension GameScene: SKPhysicsContactDelegate {
             octopus.physicsBody?.velocity.dy = gameFrame.height * boostSpeed - octopus.position.y
             if let boost = [contact.bodyA.node, contact.bodyB.node].compactMap({ $0 as? BoostNode }).first {
                 boost.activate()
+				run(Music.shellBubblesSound)
+				run(Music.jumpSound)
                 sendBubbles(boostNode: boost)
             }
         case Physics.octopus | Physics.fishEnemy:
             if let fish = [contact.bodyA.node, contact.bodyB.node].compactMap({ $0 as? FishNode }).first {
+				run(Music.fishHitSound)
                 takeHit()
                 fish.takeRest()
             }
         case Physics.octopus | Physics.heart:
+			run(Music.newLifeSound)
             gameDelegate?.livesLeft += 1
             if let heart = [contact.bodyA.node, contact.bodyB.node].compactMap({ $0 as? HeartNode }).first {
                 heart.disappear()
@@ -380,6 +386,7 @@ extension GameScene: SKPhysicsContactDelegate {
             
             if let grass = [contact.bodyA.node, contact.bodyB.node].compactMap({ $0 as? GrassNode }).first {
                 if grass.readyToBite, let score = gameDelegate?.score {
+					run(Music.grassHitSound)
                     let biteSize = 50
                     let newScore = score - biteSize + 1
                     gameDelegate?.score = max(0, (newScore - newScore % 10))
@@ -387,6 +394,7 @@ extension GameScene: SKPhysicsContactDelegate {
                 }
             }
         case Physics.octopus | Physics.coin:
+			run(Music.collectCoinSound)
             if let score = gameDelegate?.score {
                 gameDelegate?.score = min(999, score + 10)
             }

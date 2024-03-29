@@ -21,10 +21,11 @@ final class MenuScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        
         gameDelegate?.hideScoreboard()
         
         addBackground()
+		
+		Music.stopBackgroundMusic()
         
         isUserInteractionEnabled = false
         
