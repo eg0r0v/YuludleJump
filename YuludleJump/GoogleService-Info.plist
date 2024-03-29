@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyC_RaKyEiOCAUEmz5A0f3mTS4jzAZPtZUQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>282145890348</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ilyaaegorov.yuludlejump</string>
+	<key>PROJECT_ID</key>
+	<string>yuludlejump</string>
+	<key>STORAGE_BUCKET</key>
+	<string>yuludlejump.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:282145890348:ios:c3d66bb4670262ac7cf189</string>
+</dict>
+</plist>
